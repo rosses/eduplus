@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title> .: School App :. </title>
+	<link rel="shortcut icon" type="image/png" href="images/">
+
+	<!-- FontAwesome -->
+	<script src="https://use.fontawesome.com/12fbfdb954.js"></script>
+
+	<!-- CSS & Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/generic.css">
+
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	<!-- Js -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- GoogleFont -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet"> 
+
+</head>
+<body>
+
+	<div id="headerTopBar">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+					<a href="#">
+						<i class="fa fa-bars" aria-hidden="true"></i>
+					</a>
+				</div>
+
+				<div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+					<a href="#">
+						<i class="fa fa-arrow-left" aria-hidden="true"></i>
+					</a>
+				</div>
+
+				<div class="col-xs-12 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-4 col-lg-offset-2">
+					<div class="page-title">
+						<h4>Reforzamiento</h4>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<div class="menu-control">
+						<div class="row">
+							<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 text-center">
+								
+							</div>
+
+							<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 text-center">
+								<a href="#" class="menu-btn-icon">
+									<i class="fa fa-envelope-o" aria-hidden="true"></i>
+									<!-- Notification -->
+									<span class="type-a">1</span>
+								</a>
+							</div>
+
+							<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 text-center">
+								<a href="#" class="menu-btn-icon">
+									<i class="fa fa-bell-o" aria-hidden="true"></i>
+									<!-- Notification -->
+									<span class="type-b">1</span>
+								</a>
+							</div>
+
+							<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+								<div class="profile-thumb">
+									<div class="thumb-pic img-circle">
+										<img src="images/profile-pic.png" alt="">
+									</div>
+
+									<div class="user-type">
+										Profesora
+									</div>
+
+									<div class="user-name">
+										Antonia Santander
+									</div>
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+								<a href="#" class="menu-btn-icon">
+									<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="pageContainerInner">
+		<div id="menuHelper" class="no-space">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+						<a href="#" class="logo-helper">
+							<!-- <img src="images/logo-helper.png" alt=""> -->
+						</a>
+					</div>
+
+					<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+						<div class="search-cont">
+							<div class="vcenter">
+								<div class="tabcell">
+									<select class="form-control inp-school-b">
+										<option value="" disabled selected>Matem&aacute;ticas</option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+									</select>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+						<div class="search-cont">
+							<div class="vcenter">
+								<div class="tabcell">
+									<div class="status-icon-row text-center">
+										<button class="btn btn-status btn-a btn-img on">
+											<img src="images/icon-check-on.png" width="100%;" alt="">
+											<span><i class="fa fa-arrow-up"></i> 80%</span>
+										</button>
+
+										<button class="btn btn-status btn-b btn-img">
+											<img src="images/icon-dot.png" width="100%;" alt="">
+											<span><i class="fa fa-arrow-up"></i> 50%</span>
+										</button>
+
+										<button class="btn btn-status btn-c btn-img">
+											<img src="images/icon-x.png" width="100%;" alt="">
+											<span><i class="fa fa-arrow-down"></i> 50%</span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2">
+						<!-- <div class="search-cont">
+							<div class="vcenter">
+								<div class="tabcell">
+									<select class="form-control inp-school-b">
+										<option value="" disabled selected>Puntaje</option>
+										<option>1</option>
+										<option>2</option>
+										<option>3</option>
+										<option>4</option>
+										<option>5</option>
+									</select>
+								</div>
+							</div>
+						</div> -->
+					</div>
+
+
+					<div class="col-xs-12 col-sm-1 col-sm-offset-1 col-md-1 col-md-offset-1 col-lg-1 col-lg-offset-1">
+						<a href="#" class="logo-helper">
+							<img src="images/progress-circle_01.png" alt="">
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="pageBody">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12">
+						<div class="mainbox">
+							<div class="row">
+								<div class="col-xs-12 col-md-4">
+									<ul class="nav nav-pills edu-navpill-2">
+										<li role="presentation" class="active"><a href="#">Selección Manual</a></li>
+										<li role="presentation"><a href="#">Seleccionar todos</a></li>
+									</ul>
+
+									<div class="instruction-row text-center blue-light">
+										Selecciona a los alumnos que deseas compartir  material
+									</div>
+
+									<div class="subject-thumb text-center">
+										<img src="images/icon-algebra-check.png" alt="">
+									</div>
+
+									<div class="module-student-thumb m-tb">
+										<ul>
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-check-on.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-x.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-x.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-check-on.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-x.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-check-on.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-x.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-x.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-check-on.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-x.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-check-on.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-x.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-x.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-check-on.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-x.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-check-on.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-x.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-x.png" alt="">
+												</div>
+											</li>
+
+											<li>
+												<div class="student-thumb img-circle">
+													<img src="images/profile-pic.png" alt="">
+												</div>
+
+												<div class="select-status img-circle">
+													<img src="images/icon-check-on.png" alt="">
+												</div>
+											</li>
+										</ul>
+									</div>
+
+									<a class="btn btn-default btn-edu-def" href="#" role="button">Envíar material</a>
+								</div>
+
+								<div class="col-xs-12 col-md-8">
+									<div class="mod-search">
+										<div class="row">
+											<div class="col-xs-12 col-md-9">
+												<input type="text" class="form-control" id="" placeholder="">
+											</div>
+
+											<div class="col-xs-12 col-md-3">
+												<a class="btn btn-default btn-edu-def" href="#" role="button">Buscar</a>
+											</div>
+										</div>
+									</div>
+
+									<div class="instruction-row text-center blue-light">
+										Selecciona los archivos que deseas envíar
+									</div>
+
+									<div class="mod-car-attach">
+										<div id="uploadeFiles" class="carousel slide" data-ride="carousel">
+											<!-- Indicators -->
+											<ol class="carousel-indicators">
+												<li data-target="#uploadeFiles" data-slide-to="0" class="active">1</li>
+												<li data-target="#uploadeFiles" data-slide-to="1">2</li>
+											</ol>
+
+											<!-- Wrapper for slides -->
+											<div class="carousel-inner" role="listbox">
+												<div class="item active">
+													<div class="row">
+														<div class="col-xs-12 col-md-6">
+															<div class="module-row">
+																<div class="file-uploaded">
+																	<div class="vcenter">
+																		<div class="tabcell">
+																			<div class="row">
+																				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																					<div class="doc-info">
+																						<img src="images/icon-doc-uploaded.png" alt="">
+
+																						<h5>&Aacute;lgebra_avanzada_2.pdf</h5>
+																						<span>SUBIDO EL 28 JUN, 2017</span>
+																					</div>
+																				</div>
+
+																				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+																					<button class="btn btn-default btn-check to-send">
+																						<i class="fa fa-check"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="module-row">
+																<div class="file-uploaded">
+																	<div class="vcenter">
+																		<div class="tabcell">
+																			<div class="row">
+																				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																					<div class="doc-info">
+																						<img src="images/icon-doc-uploaded.png" alt="">
+
+																						<h5>&Aacute;lgebra_avanzada_2.pdf</h5>
+																						<span>SUBIDO EL 28 JUN, 2017</span>
+																					</div>
+																				</div>
+
+																				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+																					<button class="btn btn-default btn-check">
+																						<i class="fa fa-check"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="module-row">
+																<div class="file-uploaded">
+																	<div class="vcenter">
+																		<div class="tabcell">
+																			<div class="row">
+																				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																					<div class="doc-info">
+																						<img src="images/icon-doc-uploaded.png" alt="">
+
+																						<h5>&Aacute;lgebra_avanzada_2.pdf</h5>
+																						<span>SUBIDO EL 28 JUN, 2017</span>
+																					</div>
+																				</div>
+
+																				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+																					<button class="btn btn-default btn-check">
+																						<i class="fa fa-check"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="module-row">
+																<div class="file-uploaded">
+																	<div class="vcenter">
+																		<div class="tabcell">
+																			<div class="row">
+																				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																					<div class="doc-info">
+																						<img src="images/icon-doc-uploaded.png" alt="">
+
+																						<h5>&Aacute;lgebra_avanzada_2.pdf</h5>
+																						<span>SUBIDO EL 28 JUN, 2017</span>
+																					</div>
+																				</div>
+
+																				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+																					<button class="btn btn-default btn-check">
+																						<i class="fa fa-check"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="col-xs-12 col-md-6">
+															<div class="module-row">
+																<div class="file-uploaded">
+																	<div class="vcenter">
+																		<div class="tabcell">
+																			<div class="row">
+																				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																					<div class="doc-info">
+																						<img src="images/icon-doc-uploaded.png" alt="">
+
+																						<h5>&Aacute;lgebra_avanzada_2.pdf</h5>
+																						<span>SUBIDO EL 28 JUN, 2017</span>
+																					</div>
+																				</div>
+
+																				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+																					<button class="btn btn-default btn-check to-send">
+																						<i class="fa fa-check"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="module-row">
+																<div class="file-uploaded">
+																	<div class="vcenter">
+																		<div class="tabcell">
+																			<div class="row">
+																				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																					<div class="doc-info">
+																						<img src="images/icon-doc-uploaded.png" alt="">
+
+																						<h5>&Aacute;lgebra_avanzada_2.pdf</h5>
+																						<span>SUBIDO EL 28 JUN, 2017</span>
+																					</div>
+																				</div>
+
+																				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+																					<button class="btn btn-default btn-check">
+																						<i class="fa fa-check"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="module-row">
+																<div class="file-uploaded">
+																	<div class="vcenter">
+																		<div class="tabcell">
+																			<div class="row">
+																				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																					<div class="doc-info">
+																						<img src="images/icon-doc-uploaded.png" alt="">
+
+																						<h5>&Aacute;lgebra_avanzada_2.pdf</h5>
+																						<span>SUBIDO EL 28 JUN, 2017</span>
+																					</div>
+																				</div>
+
+																				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+																					<button class="btn btn-default btn-check">
+																						<i class="fa fa-check"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="module-row">
+																<div class="file-uploaded">
+																	<div class="vcenter">
+																		<div class="tabcell">
+																			<div class="row">
+																				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																					<div class="doc-info">
+																						<img src="images/icon-doc-uploaded.png" alt="">
+
+																						<h5>&Aacute;lgebra_avanzada_2.pdf</h5>
+																						<span>SUBIDO EL 28 JUN, 2017</span>
+																					</div>
+																				</div>
+
+																				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+																					<button class="btn btn-default btn-check">
+																						<i class="fa fa-check"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+
+												<div class="item">
+													<div class="row">
+														<div class="col-xs-12 col-md-6">
+															<div class="module-row">
+																<div class="file-uploaded">
+																	<div class="vcenter">
+																		<div class="tabcell">
+																			<div class="row">
+																				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																					<div class="doc-info">
+																						<img src="images/icon-doc-uploaded.png" alt="">
+
+																						<h5>&Aacute;lgebra_avanzada_2.pdf</h5>
+																						<span>SUBIDO EL 28 JUN, 2017</span>
+																					</div>
+																				</div>
+
+																				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+																					<button class="btn btn-default btn-check to-send">
+																						<i class="fa fa-check"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="module-row">
+																<div class="file-uploaded">
+																	<div class="vcenter">
+																		<div class="tabcell">
+																			<div class="row">
+																				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																					<div class="doc-info">
+																						<img src="images/icon-doc-uploaded.png" alt="">
+
+																						<h5>&Aacute;lgebra_avanzada_2.pdf</h5>
+																						<span>SUBIDO EL 28 JUN, 2017</span>
+																					</div>
+																				</div>
+
+																				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+																					<button class="btn btn-default btn-check">
+																						<i class="fa fa-check"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="module-row">
+																<div class="file-uploaded">
+																	<div class="vcenter">
+																		<div class="tabcell">
+																			<div class="row">
+																				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																					<div class="doc-info">
+																						<img src="images/icon-doc-uploaded.png" alt="">
+
+																						<h5>&Aacute;lgebra_avanzada_2.pdf</h5>
+																						<span>SUBIDO EL 28 JUN, 2017</span>
+																					</div>
+																				</div>
+
+																				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+																					<button class="btn btn-default btn-check">
+																						<i class="fa fa-check"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="module-row">
+																<div class="file-uploaded">
+																	<div class="vcenter">
+																		<div class="tabcell">
+																			<div class="row">
+																				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																					<div class="doc-info">
+																						<img src="images/icon-doc-uploaded.png" alt="">
+
+																						<h5>&Aacute;lgebra_avanzada_2.pdf</h5>
+																						<span>SUBIDO EL 28 JUN, 2017</span>
+																					</div>
+																				</div>
+
+																				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+																					<button class="btn btn-default btn-check">
+																						<i class="fa fa-check"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+
+														<div class="col-xs-12 col-md-6">
+															<div class="module-row">
+																<div class="file-uploaded">
+																	<div class="vcenter">
+																		<div class="tabcell">
+																			<div class="row">
+																				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																					<div class="doc-info">
+																						<img src="images/icon-doc-uploaded.png" alt="">
+
+																						<h5>&Aacute;lgebra_avanzada_2.pdf</h5>
+																						<span>SUBIDO EL 28 JUN, 2017</span>
+																					</div>
+																				</div>
+
+																				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+																					<button class="btn btn-default btn-check to-send">
+																						<i class="fa fa-check"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="module-row">
+																<div class="file-uploaded">
+																	<div class="vcenter">
+																		<div class="tabcell">
+																			<div class="row">
+																				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																					<div class="doc-info">
+																						<img src="images/icon-doc-uploaded.png" alt="">
+
+																						<h5>&Aacute;lgebra_avanzada_2.pdf</h5>
+																						<span>SUBIDO EL 28 JUN, 2017</span>
+																					</div>
+																				</div>
+
+																				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+																					<button class="btn btn-default btn-check">
+																						<i class="fa fa-check"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="module-row">
+																<div class="file-uploaded">
+																	<div class="vcenter">
+																		<div class="tabcell">
+																			<div class="row">
+																				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																					<div class="doc-info">
+																						<img src="images/icon-doc-uploaded.png" alt="">
+
+																						<h5>&Aacute;lgebra_avanzada_2.pdf</h5>
+																						<span>SUBIDO EL 28 JUN, 2017</span>
+																					</div>
+																				</div>
+
+																				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+																					<button class="btn btn-default btn-check">
+																						<i class="fa fa-check"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+
+															<div class="module-row">
+																<div class="file-uploaded">
+																	<div class="vcenter">
+																		<div class="tabcell">
+																			<div class="row">
+																				<div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+																					<div class="doc-info">
+																						<img src="images/icon-doc-uploaded.png" alt="">
+
+																						<h5>&Aacute;lgebra_avanzada_2.pdf</h5>
+																						<span>SUBIDO EL 28 JUN, 2017</span>
+																					</div>
+																				</div>
+
+																				<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+																					<button class="btn btn-default btn-check">
+																						<i class="fa fa-check"></i>
+																					</button>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>		
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title> .: School App :. </title>
+	<link rel="shortcut icon" type="image/png" href="images/">
+
+	<!-- FontAwesome -->
+	<script src="https://use.fontawesome.com/12fbfdb954.js"></script>
+
+	<!-- CSS & Bootstrap -->
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>
+	<link rel="stylesheet" href="css/generic.css">
+
+	<!-- JQuery -->
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+	<!-- Js -->
+	<script src="js/bootstrap.min.js"></script>
+
+	<!-- GoogleFont -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> 
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet"> 
+
+</head>
+<body>
+
+	<div id="headerTopBar">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+					<a href="#">
+						<i class="fa fa-bars" aria-hidden="true"></i>
+					</a>
+				</div>
+
+				<div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+					<a href="#">
+						<i class="fa fa-arrow-left" aria-hidden="true"></i>
+					</a>
+				</div>
+
+				<div class="col-xs-12 col-sm-4 col-sm-offset-2 col-md-4 col-md-offset-2 col-lg-4 col-lg-offset-2">
+					<div class="page-title">
+						<h4>Estad&iacute;sticas</h4>
+					</div>
+				</div>
+
+				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+					<div class="menu-control">
+						<div class="row">
+							<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 text-center">
+								
+							</div>
+
+							<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 text-center">
+								<a href="#" class="menu-btn-icon">
+									<i class="fa fa-envelope-o" aria-hidden="true"></i>
+									<!-- Notification -->
+									<span class="type-a">1</span>
+								</a>
+							</div>
+
+							<div class="col-xs-12 col-sm-2 col-md-2 col-lg-2 text-center">
+								<a href="#" class="menu-btn-icon">
+									<i class="fa fa-bell-o" aria-hidden="true"></i>
+									<!-- Notification -->
+									<span class="type-b">1</span>
+								</a>
+							</div>
+
+							<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+								<div class="profile-thumb">
+									<div class="thumb-pic img-circle">
+										<img src="images/profile-pic.png" alt="">
+									</div>
+
+									<div class="user-type">
+										Alumno
+									</div>
+
+									<div class="user-name">
+										Martin Silva Vargas
+									</div>
+								</div>
+							</div>
+
+							<div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+								<a href="#" class="menu-btn-icon">
+									<i class="fa fa-ellipsis-v" aria-hidden="true"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="pageContainerInner">
+		<div id="menuHelper" class="no-space">
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-12 col-md-3 col-md-offset-9">
+						<div class="vcenter">
+							<div class="tabcell">
+								<ul class="nav nav-pills edu-navpill-2">
+									<li role="presentation" class="active"><a href="#">PSU</a></li>
+									<li role="presentation"><a href="#">Mini Ensayos</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="pageBody">
+			<div class="container-fluid">
+				<div class="statistics-row">
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+							<div class="subjects-row">
+								<ul>
+									<li>
+										<div class="subjects-infobox subj-lang">
+											<div class="vcenter">
+												<div class="tabcell">
+													<div class="subj-title">
+														Lenguaje
+													</div>
+
+													<div class="subj-subtitle">
+														meta
+													</div>
+
+													<div class="subj-pts">
+														635pts
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+
+									<li>
+										<div class="subjects-infobox subj-math">
+											<div class="vcenter">
+												<div class="tabcell">
+													<div class="subj-title">
+														Matem&aacute;ticas
+													</div>
+
+													<div class="subj-subtitle">
+														meta
+													</div>
+
+													<div class="subj-pts">
+														635pts
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+
+									<li>
+										<div class="subjects-infobox subj-scie">
+											<div class="vcenter">
+												<div class="tabcell">
+													<div class="subj-title">
+														Ciencias
+													</div>
+
+													<div class="subj-subtitle">
+														meta
+													</div>
+
+													<div class="subj-pts">
+														635pts
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+
+									<li>
+										<div class="subjects-infobox subj-hist">
+											<div class="vcenter">
+												<div class="tabcell">
+													<div class="subj-title">
+														Historia
+													</div>
+
+													<div class="subj-subtitle">
+														meta
+													</div>
+
+													<div class="subj-pts">
+														635pts
+													</div>
+
+													<div class="subj-subtitle">
+														Omitida
+													</div>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+							</div>	
+						</div>
+					</div>
+				</div>
+
+				<div class="mainbox main-border">
+					<div class="row">
+						<div class="col-xs-12 col-md-4">
+							<div class="test-result-list text-center">
+								<h4>
+									Matemáticas PSU 2017
+								</h4>
+
+								<div id="carousel-test-result-list" class="carousel slide basicrow" data-ride="carousel" data-interval="10000">
+									<!-- Indicators -->
+									<ol class="carousel-indicators edu-carousel-control">
+										<li data-target="#carousel-test-result-list" data-slide-to="0" class="active"></li>
+										<li data-target="#carousel-test-result-list" data-slide-to="1"></li>
+									</ol>
+
+									<!-- Wrapper for slides -->
+									<div class="carousel-inner" role="listbox">
+										<div class="item active">
+											<ul class="nav nav-pills nav-stacked" role="tablist">
+												<li role="presentation" class="active">
+													<a href="#tab_1" aria-controls="tab_1" role="tab" data-toggle="tab" class="btn btn-default btn-b btn-active">
+														Ver resultados test 6
+													</a>
+												</li>
+
+												<li role="presentation">
+													<a href="#tab_2" aria-controls="tab_2" role="tab" data-toggle="tab" class="btn btn-default btn-b btn-active">
+														Ver resultados test 6
+													</a>
+												</li>
+
+												<li role="presentation">
+													<a href="#tab_3" aria-controls="tab_3" role="tab" data-toggle="tab" class="btn btn-default btn-b btn-active">
+														Ver resultados test 6
+													</a>
+												</li>
+
+												<li role="presentation">
+													<a href="#tab_4" aria-controls="tab_4" role="tab" data-toggle="tab" class="btn btn-default btn-b btn-active">
+														Ver resultados test 6
+													</a>
+												</li>
+											  </ul>
+										</div>
+
+										<div class="item">
+											<ul class="nav nav-pills nav-stacked" role="tablist">
+												<li role="presentation" class="active">
+													<a href="#tab_5" aria-controls="tab_1" role="tab" data-toggle="tab" class="btn btn-default btn-b btn-active">
+														Ver resultados test 5
+													</a>
+												</li>
+
+												<li role="presentation">
+													<a href="#tab_6" aria-controls="tab_2" role="tab" data-toggle="tab" class="btn btn-default btn-b btn-active">
+														Ver resultados test 6
+													</a>
+												</li>
+
+												<li role="presentation">
+													<a href="#tab_7" aria-controls="tab_3" role="tab" data-toggle="tab" class="btn btn-default btn-b btn-active">
+														Ver resultados test 6
+													</a>
+												</li>
+
+												<li role="presentation">
+													<a href="#tab_8" aria-controls="tab_4" role="tab" data-toggle="tab" class="btn btn-default btn-b btn-active">
+														Ver resultados test 6
+													</a>
+												</li>
+											  </ul>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xs-12 col-md-8">
+							<!-- Tabs -->
+							<div class="tab-content">
+								<div role="tabpanel" class="tab-pane active" id="tab_1">
+									<div class="row">
+										<div class="col-xs-12">
+											<h4 class="inner-title">Felicidades Martin estas muy cerca de la meta!</h4>
+										</div>
+									</div>
+
+									<div class="row m-b">
+										<div class="col-xs-12 col-md-6">
+											<img src="images/estadistica-grafica-1.png" alt="">
+										</div>
+
+										<div class="col-xs-12 col-md-6">
+											<img src="images/estadistica-grafica-2.png" alt="">
+										</div>
+									</div>
+
+									<div class="row m-b">
+										<div class="col-xs-12 col-md-6">
+											<img src="images/estadistica-grafica-3.png" alt="">
+										</div>
+
+										<div class="col-xs-12 col-md-6">
+											<img src="images/estadistica-grafica-4.png" alt="">
+										</div>
+									</div>
+								</div>
+
+								<div role="tabpanel" class="tab-pane" id="tab_2">
+									<div class="row">
+										<div class="col-xs-12">
+											<h4 class="inner-title">Felicidades Martin estas muy cerca de la meta!</h4>
+										</div>
+									</div>
+
+									<div class="row m-b">
+										<div class="col-xs-12 col-md-6">
+											<img src="images/estadistica-grafica-2.png" alt="">
+										</div>
+
+										<div class="col-xs-12 col-md-6">
+											<img src="images/estadistica-grafica-1.png" alt="">
+										</div>
+									</div>
+
+									<div class="row m-b">
+										<div class="col-xs-12 col-md-6">
+											<img src="images/estadistica-grafica-3.png" alt="">
+										</div>
+
+										<div class="col-xs-12 col-md-6">
+											<img src="images/estadistica-grafica-4.png" alt="">
+										</div>
+									</div>
+								</div>
+
+								<div role="tabpanel" class="tab-pane" id="tab_3">
+									<div class="row">
+										<div class="col-xs-12">
+											<h4 class="inner-title">Felicidades Martin estas muy cerca de la meta!</h4>
+										</div>
+									</div>
+
+									<div class="row m-b">
+										<div class="col-xs-12 col-md-6">
+											<img src="images/estadistica-grafica-1.png" alt="">
+										</div>
+
+										<div class="col-xs-12 col-md-6">
+											<img src="images/estadistica-grafica-2.png" alt="">
+										</div>
+									</div>
+
+									<div class="row m-b">
+										<div class="col-xs-12 col-md-6">
+											<img src="images/estadistica-grafica-4.png" alt="">
+										</div>
+
+										<div class="col-xs-12 col-md-6">
+											<img src="images/estadistica-grafica-3.png" alt="">
+										</div>
+									</div>
+								</div>
+
+								<div role="tabpanel" class="tab-pane" id="tab_4">
+									<div class="row">
+										<div class="col-xs-12">
+											<h4 class="inner-title">Felicidades Martin estas muy cerca de la meta!</h4>
+										</div>
+									</div>
+
+									<div class="row m-b">
+										<div class="col-xs-12 col-md-6">
+											<img src="images/estadistica-grafica-1.png" alt="">
+										</div>
+
+										<div class="col-xs-12 col-md-6">
+											<img src="images/estadistica-grafica-4.png" alt="">
+										</div>
+									</div>
+
+									<div class="row m-b">
+										<div class="col-xs-12 col-md-6">
+											<img src="images/estadistica-grafica-3.png" alt="">
+										</div>
+
+										<div class="col-xs-12 col-md-6">
+											<img src="images/estadistica-grafica-2.png" alt="">
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="mainbox">
+					<div class="row">
+						<div class="col-xs-12 col-md-6">
+							<ul class="nav nav-pills edu-navpill-5 m-b">
+								<li role="presentation" class="active"><a href="#">PSU</a></li>
+								<li role="presentation"><a href="#">Mini Ensayos</a></li>
+								<li role="presentation"><a href="#">Mini Ensayos</a></li>
+								<li role="presentation"><a href="#">Mini Ensayos</a></li>
+								<li role="presentation"><a href="#">Mini Ensayos</a></li>
+							</ul>
+
+							<table class="table table-striped text-center table-head edu-table">
+								<thead>
+									<tr>
+										<th class="text-center" style="vertical-align: middle;" width="50%">
+											Rangos
+										</th>
+
+										<th class="text-center" width="50%">
+											<table width="100%" class="table-bordered text-center" style="border-top: 0; border-bottom: 0;">
+												<tbody>
+													<tr>
+														<td colspan="2" style="border-top: 0;">Alumnos</td>
+													</tr>
+
+													<tr>
+														<td width="50%" style="border-bottom: 0;">Números</td>
+														<td width="50%" style="border-bottom: 0;">%</td>
+													</tr>
+												</tbody>
+											</table>
+										</th>
+									</tr>
+								</thead>
+
+								<tbody>
+									<tr>
+										<td>
+											<table width="100%" class="text-center">
+												<tbody>
+													<tr>
+														<td width="50%">
+															<span class="icon-table"><img src="images/icon-check-on.png" alt=""></span>	
+														</td>
+
+														<td width="50%" class="text-left blue-light"><i class="fa fa-arrow-up"></i> 80%</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+
+										<td colspan="2">
+											<table width="100%" class="text-center">
+												<tbody>
+													<tr>
+														<td width="50%">0</td>
+														<td width="50%">0%</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<table width="100%" class="text-center">
+												<tbody>
+													<tr>
+														<td width="50%">
+															<span class="icon-table"><img src="images/icon-dot.png" alt=""></span>	
+														</td>
+
+														<td width="50%" class="text-left blue-light">
+															<i class="fa fa-arrow-up"></i> 80% <i class="fa fa-arrow-down"></i> 50%
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+
+										<td colspan="2">
+											<table width="100%" class="text-center">
+												<tbody>
+													<tr>
+														<td width="50%">0</td>
+														<td width="50%">0%</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+
+									<tr>
+										<td>
+											<table width="100%" class="text-center">
+												<tbody>
+													<tr>
+														<td width="50%">
+															<span class="icon-table"><img src="images/icon-x.png" alt=""></span>	
+														</td>
+
+														<td width="50%" class="text-left blue-light">
+															<i class="fa fa-arrow-down"></i> 50%
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+
+										<td colspan="2">
+											<table width="100%" class="text-center">
+												<tbody>
+													<tr>
+														<td width="50%">11</td>
+														<td width="50%">100%</td>
+													</tr>
+												</tbody>
+											</table>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+
+						<div class="col-xs-12 col-md-6">
+							<div class="stat-status-tab">
+								<!-- Nav tabs -->
+								<ul class="nav nav-tabs m-b" role="tablist">
+									<li role="presentation" class="active">
+										<button href="#tab1" aria-controls="tab1" role="tab" data-toggle="tab" class="btn btn-status btn-a btn-img on">
+											<img src="images/icon-check-on.png" width="100%;" alt="">
+										</button>
+									</li>
+
+									<li role="presentation">
+										<button href="#tab2" aria-controls="tab2" role="tab" data-toggle="tab" class="btn btn-status btn-b btn-img">
+											<img src="images/icon-dot.png" width="100%;" alt="">
+										</button>
+									</li>
+
+									<li role="presentation">
+										<button href="#tab3" aria-controls="tab3" role="tab" data-toggle="tab" class="btn btn-status btn-c btn-img">
+											<img src="images/icon-x.png" width="100%;" alt="">
+										</button>
+									</li>
+								</ul>
+
+								<!-- Tab panes -->
+								<div class="tab-content">
+									<div role="tabpanel" class="tab-pane active" id="tab1">
+										<div class="resume-tab-1">
+											<img src="images/icon-check-on.png" alt=""> <span>64 Aciertos de 80 preguntas del test</span>
+										</div>
+
+										<div class="border-table-wrap">
+											<table class="table text-center edu-table-2">
+												<thead>
+													<tr>
+														<th width="50%">Alumnos</th>
+
+														<th width="50%">Aciertos</th>
+													</tr>
+												</thead>
+
+												<tbody>
+													<tr>
+														<td colspan="2">
+															<div class="table-empty">No hay aciertos para esta tabla</div>
+														</td>
+													</tr>
+
+													<tr style="display: none;">
+														<td>1</td>
+
+														<td>1</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+
+									<div role="tabpanel" class="tab-pane" id="tab2">
+										<div class="resume-tab-1">
+											<img src="images/icon-dot.png" alt=""> <span>64 Aciertos de 80 preguntas del test</span>
+										</div>
+
+										<div class="border-table-wrap">
+											<table class="table text-center edu-table-2">
+												<thead>
+													<tr>
+														<th width="50%">Alumnos</th>
+
+														<th width="50%">Aciertos</th>
+													</tr>
+												</thead>
+
+												<tbody>
+													<tr>
+														<td colspan="2">
+															<div class="table-empty">No hay aciertos para esta tabla</div>
+														</td>
+													</tr>
+
+													<tr style="display: none;">
+														<td>1</td>
+
+														<td>1</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+
+									<div role="tabpanel" class="tab-pane" id="tab3">
+										<div class="resume-tab-1">
+											<img src="images/icon-x.png" alt=""> <span>64 Aciertos de 80 preguntas del test</span>
+										</div>
+
+										<div class="border-table-wrap">
+											<table class="table text-center edu-table-2">
+												<thead>
+													<tr>
+														<th width="50%">Alumnos</th>
+
+														<th width="50%">Aciertos</th>
+													</tr>
+												</thead>
+
+												<tbody>
+													<tr>
+														<td colspan="2">
+															<div class="table-empty">No hay aciertos para esta tabla</div>
+														</td>
+													</tr>
+
+													<tr style="display: none;">
+														<td>1</td>
+
+														<td>1</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
+	
+</body>
+</html>
