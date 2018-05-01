@@ -8,19 +8,19 @@ $alumno->getMaterias();
 	<div class="row">
 		<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 			<div class="subjects-row2">
+				<h5>ASIGNATURA</h5>
 				<ul>
 					<?php
 					foreach ($alumno->materias as $id_materia=>$materia) {
 					?>		
 					<li>
-						<div class="subjects-infobox subj-x" style="border-color: <?=$materia["color"];?>;" data-id="<?=$id_materia;?>">
-							<div class="vcenter">
-								<div class="tabcell">
-									<div class="subj-title"><?=$materia["name"];?></div>
-									<div class="subj-subtitle">meta</div>
-									<div class="subj-pts"><?php echo $materia["ultima_psu"]."pts"; ?></div>
-								</div>
+						<div class="subjects-infobox subj-x" style="border-left: 10px solid <?=$materia["color"];?>;" data-id="<?=$id_materia;?>">
+							<div class="subjects-stats icon">
+								<img src="images/subj/<?=$id_materia;?>_off.png" class="off" />
+								<img src="images/subj/<?=$id_materia;?>_on.png" class="on" />
 							</div>
+							<div class="subjects-stats name"><?=$materia["name"];?></div>
+							<div class="subjects-stats goal"><?php echo "<span class=\"b\">Meta</span><span>".$materia["ultima_psu"]."</span><span class=\"b\">Puntos</span>"; ?></div>
 						</div>
 					</li>
 					<?php

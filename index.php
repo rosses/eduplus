@@ -7,12 +7,11 @@
 	}
 	if ($_SESSION["tbl"] == "user") {
 		$me = DB::queryFirstRow("SELECT * FROM user WHERE id = %s",$_SESSION["id"]);
-		$institucionName = DB::queryFirstField("SELECT name FROM customer WHERE id = %i", $me["customer_id"]); 
 	}
 	if ($_SESSION["tbl"] == "teacher") {
 		$me = DB::queryFirstRow("SELECT * FROM teacher WHERE id = %s",$_SESSION["id"]);
-		$institucionName = DB::queryFirstField("SELECT name FROM customer WHERE id = %i", $me["customer_id"]); 
 	}
+	$institucionName = DB::queryFirstField("SELECT name FROM customer WHERE id = %i", $me["customer_id"]); 
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,20 +32,20 @@
 	<link rel="stylesheet" href="css/dropzone.css">
 	<link rel="stylesheet" href="css/select2.min.css" />
 	<link rel="stylesheet" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/sfwebfont.css" />
+	<link rel="stylesheet" href="js/ui/jquery-ui.min.css" />
+	<link rel="stylesheet" href="js/ui/jquery-ui.theme.min.css" />
 
 	<!-- JQuery -->
 	<script src="js/jquery-1.12.4.min.js"></script>
-	<!--
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	<script src="https://code.highcharts.com/modules/series-label.js"></script>
-	<script src="https://code.highcharts.com/modules/exporting.js"></script>
-	-->
+
 
 	<!-- Js -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/bootstrap-slider.js"></script>
 	<script src="js/jquery.rut.min.js"></script>
 	<script src="js/jquery.mask.min.js"></script>
+	<script src="js/ui/jquery-ui.min.js"></script>
 	<script src="js/canvasjs.min.js"></script>
 	<script src="js/select2.full.min.js"></script>
 	<script src="js/dropzone.js"></script>
@@ -121,12 +120,6 @@
 				<a href="index.php?load=test" class="<?php echo ($_GET["load"]=="test" ? "current" : ""); ?>">
 					<img src="images/icon-menu-test.png" alt="">
 					<span>Test</span>
-				</a>
-			</li>
-			<li>
-				<a href="index.php?load=test_custom" class="<?php echo ($_GET["load"]=="test_custom" ? "current" : ""); ?>">
-					<img src="images/icon-menu-test.png" alt="">
-					<span>Test personalizado</span>
 				</a>
 			</li>
 			<li>
@@ -312,7 +305,23 @@
   </div>
 </div>
 
+<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myEditLibrary" aria-hidden="true" id="modalEditLibrary">
+  <div class="modal-dialog modal-md">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Editar archivo de la libreria</h4>
+      </div>
+      <div class="modal-body" id="modalEditLibraryHtml">
 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" id="confirmSaveLibrary">Editar archivo</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 </body>

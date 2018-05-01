@@ -8,6 +8,7 @@ $(document).ready(function() {
 	});
 });
 $(document).on("click", ".group_call",function(e) {
+	e.preventDefault();
 	$.post("ajax/profe_reforza.php", {
 		rel: $(this).attr('data-rel'),
 		group: $(this).attr('data-group')
@@ -22,4 +23,15 @@ $(document).on("change", "#reforzamientoChanger",function(e) {
 		$("#reforza_ajax").html(data);
 	});
 });
+$(document).on("click", ".uploadCustomMaterial",function(e) {
+	e.preventDefault();
+	$.post("ajax/profe_reforza.php", {
+		rel: $(this).attr('data-rel'),
+		group: $(this).attr('data-group'),
+		upload: $(this).attr('data-eje')
+	}, function(data){
+		$("#reforza_ajax").html(data);
+	});
+});
+
 </script>

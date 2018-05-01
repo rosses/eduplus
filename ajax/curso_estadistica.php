@@ -1,7 +1,7 @@
 <?php
 require("../../api.eduplus.enlanube.cl/sql.php");
 sleep(1);
-
+$oCurso = new CursoMateria($_POST["curso"],$_POST["materia"]);
 // get alumnos
 
 $tests = DB::query("SELECT 	t.*, 
@@ -117,7 +117,6 @@ for ($i = 150; $i < 851 ; $i += 25) {
 
 foreach ($nd as $ndf_pje=>$ndf_array) {
 	$nd[$ndf_pje]["normal_dist"] = round(@stats_dens_normal($ndf_pje, $prom, $desv),4);
-	//$nd[$ndf_pje]["probabilidad_porc"] = round(($nd[$ndf_pje]["freq"] * 100 / $total_de_packets),2);
 }
 
 ?>
@@ -256,7 +255,11 @@ foreach ($nd as $ndf_pje=>$ndf_array) {
 
 																	// tabla de relacion
 																	foreach ($nd as $points=>$p) {
-																		$porcentaje = ($p["normal_dist"] * 100 / $maxNd);
+																		if ($maxNd > 0) {
+																			$porcentaje = ($p["normal_dist"] * 100 / $maxNd);
+																		} else {
+																			$porcentaje = 0;
+																		}
 																		$punto = ($maxFreq * $porcentaje / 100);
 																		$nd[$points]["p"] = round($punto,8);
 																	}
@@ -590,9 +593,9 @@ foreach ($nd as $ndf_pje=>$ndf_array) {
 									</div>
 
 									<div id="collapseOne2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne2">
-										<div class="white-box no-pad">
+										<div class="mainbox">
 											<div class="panel-body table">
-												<ul class="nav nav-pills" role="tablist">
+												<ul class="nav nav-pills edu-navpill-5 m-b">
 												<?php
 												$ejes = DB::query("SELECT * FROM eje e WHERE e.parent = %i AND e.active = 1", $_POST["materia"]);
 												?>
@@ -631,160 +634,267 @@ foreach ($nd as $ndf_pje=>$ndf_array) {
 												  	<div class="row">
 														<div class="col-md-6">
 
-															<table class="table table-hover table-bordered">
+
+															<table class="table table-striped text-center table-head edu-table">
 																<thead>
 																	<tr>
-																		<td rowspan="2" colspan="2" class="text-center" style="vertical-align:middle;">Rangos</td>
-																		<td colspan="2" class="text-center">Alumnos</td>
-																	</tr>
-																	<tr>
-																		<td class="text-center">Núm</td>
-																		<td class="text-center">%</td>
+																		<th class="text-center" style="vertical-align: middle;" width="50%">
+																			Rangos
+																		</th>
+
+																		<th class="text-center" width="50%">
+																			<table width="100%" class="table-bordered text-center" style="border-top: 0; border-bottom: 0;">
+																				<tbody>
+																					<tr>
+																						<td colspan="2" style="border-top: 0;">Alumnos</td>
+																					</tr>
+
+																					<tr>
+																						<td width="50%" style="border-bottom: 0;">Números</td>
+																						<td width="50%" style="border-bottom: 0;">%</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</th>
 																	</tr>
 																</thead>
+
 																<tbody>
 																	<tr>
-																		<td class="text-center"> >= 80% </td>
-																		<td class="text-center"><ul class="nav-semaforo"><li><a class="verde">___</a></li></ul></td>
-																		<td class="text-center"><?=$alumnosRango80;?></td>
-																		<td class="text-center"><?=round($alumnosRango80 * 100 / $alumnosTotal);?>%</td>
+																		<td>
+																			<table width="100%" class="text-center">
+																				<tbody>
+																					<tr>
+																						<td width="50%">
+																							<span class="icon-table"><img src="images/icon-check-on.png" alt=""></span>	
+																						</td>
+
+																						<td width="50%" class="text-left blue-light"><i class="fa fa-arrow-up"></i> 80%</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</td>
+
+																		<td colspan="2">
+																			<table width="100%" class="text-center">
+																				<tbody>
+																					<tr>
+																						<td width="50%"><?=$alumnosRango80;?></td>
+																						<td width="50%"><?=round($alumnosRango80 * 100 / $alumnosTotal);?>%</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</td>
 																	</tr>
+
 																	<tr>
-																		<td class="text-center"> >= 50% y < 80% </td>
-																		<td class="text-center"><ul class="nav-semaforo"><li><a class="amarillo">___</a></li></ul></td>
-																		<td class="text-center"><?=$alumnosRango50;?></td>
-																		<td class="text-center"><?=round($alumnosRango50 * 100 / $alumnosTotal);?>%</td>
+																		<td>
+																			<table width="100%" class="text-center">
+																				<tbody>
+																					<tr>
+																						<td width="50%">
+																							<span class="icon-table"><img src="images/icon-dot.png" alt=""></span>	
+																						</td>
+
+																						<td width="50%" class="text-left blue-light">
+																							<i class="fa fa-arrow-down"></i> 80% <i class="fa fa-arrow-up"></i> 50%
+																						</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</td>
+
+																		<td colspan="2">
+																			<table width="100%" class="text-center">
+																				<tbody>
+																					<tr>
+																						<td width="50%"><?=$alumnosRango50;?></td>
+																						<td width="50%"><?=round($alumnosRango50 * 100 / $alumnosTotal);?>%</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</td>
 																	</tr>
+
 																	<tr>
-																		<td class="text-center"> < 50% </td>
-																		<td class="text-center"><ul class="nav-semaforo"><li><a class="rojo">___</a></li></ul></td>
-																		<td class="text-center"><?=$alumnosRango0;?></td>
-																		<td class="text-center"><?=round($alumnosRango0 * 100 / $alumnosTotal);?>%</td>
+																		<td>
+																			<table width="100%" class="text-center">
+																				<tbody>
+																					<tr>
+																						<td width="50%">
+																							<span class="icon-table"><img src="images/icon-x.png" alt=""></span>	
+																						</td>
+
+																						<td width="50%" class="text-left blue-light">
+																							<i class="fa fa-arrow-down"></i> 50%
+																						</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</td>
+
+																		<td colspan="2">
+																			<table width="100%" class="text-center">
+																				<tbody>
+																					<tr>
+																						<td width="50%"><?=$alumnosRango0;?></td>
+																						<td width="50%"><?=round($alumnosRango0 * 100 / $alumnosTotal);?>%</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</td>
 																	</tr>
 																</tbody>
 															</table>
 
+
 														</div>
 														<div class="col-md-6">
-															<ul class="nav nav-pills nav-semaforo" role="tablist">
-																<li role="presentation" class="active"> 
-																	<a href="#W0" aria-controls="W0" role="tab" class="verde" data-toggle="tab">-</a>
-																</li>
-																<li role="presentation"> 
-																	<a href="#W1" aria-controls="W1" role="tab" class="amarillo" data-toggle="tab">-</a>
-																</li>
-																<li role="presentation"> 
-																	<a href="#W2" aria-controls="W2" role="tab" class="rojo" data-toggle="tab">-</a>
-																</li>
-															</ul>
-															<div class="tab-content">
-																<div id="W0" class="tab-pane stats-general-semaforo active">
-																	<?php 
-																	echo "
-																	<h4>>= ".$rango80." aciertos de ".$totalPreguntasTest." preguntas del test</h4>
-																	<hr />
-																	<table class='table table-bordered table-striped'>
-																	<tr>
-																		<th>Alumno</th>
-																		<th>Aciertos</th>
-																	</tr>
-																	";
-																	$totalImpresoTabla = 0;
-																	foreach ($correctas as $c) {
-																		if ($c["qty"] >= $rango80) {
-																			$totalImpresoTabla++;
-																			echo "<tr><td>".$c["user_name"]."</td><td>".round($c["qty"] * 100 / $totalPreguntasTest)."% (".$c["qty"]." aciertos)</td></tr>";
-																		}
-																	}
-																	if ($totalImpresoTabla == 0) {
-																		echo "<tr><td colspan='2' class='text-center'>No hay aciertos para esta tabla</td></tr>";
-																	}
-																	echo "</table>";
-																	?>
-																</div>
-																<div id="W1" class="tab-pane stats-general-semaforo">
-																	<?php 
-																	echo "
-																	<h4> >= ".$rango50." y < ".$rango80." aciertos de ".$totalPreguntasTest." preguntas del test</h4>
-																	<hr />
-																	<table class='table table-bordered table-striped'>
-																	<tr>
-																		<th>Alumno</th>
-																		<th>Aciertos</th>
-																	</tr>
-																	";
-																	$totalImpresoTabla = 0;
-																	foreach ($correctas as $c) {
-																		if ($c["qty"] >= $rango50 && $c["qty"] < $rango80) {
-																			$totalImpresoTabla++;
-																			echo "<tr><td>".$c["user_name"]."</td><td>".round($c["qty"] * 100 / $totalPreguntasTest)."% (".$c["qty"]." aciertos)</td></tr>";
-																		}
-																	}
-																	if ($totalImpresoTabla == 0) {
-																		echo "<tr><td colspan='2' class='text-center'>No hay aciertos para esta tabla</td></tr>";
-																	}
-																	echo "</table>";
-																	?>
-																</div>
-																<div id="W2" class="tab-pane stats-general-semaforo">
-																	<?php 
-																	echo "
-																	<h4> < ".$rango50." aciertos de ".$totalPreguntasTest." preguntas del test</h4>
-																	<hr />
-																	<table class='table table-bordered table-striped'>
-																	<tr>
-																		<th>Alumno</th>
-																		<th>Aciertos</th>
-																	</tr>
-																	";
-																	$totalImpresoTabla = 0;
-																	foreach ($correctas as $c) {
-																		if ($c["qty"] < $rango50) {
-																			$totalImpresoTabla++;
-																			echo "<tr><td>".$c["user_name"]."</td><td>".round($c["qty"] * 100 / $totalPreguntasTest)."% (".$c["qty"]." aciertos)</td></tr>";
-																		}
-																	}
-																	if ($totalImpresoTabla == 0) {
-																		echo "<tr><td colspan='2' class='text-center'>No hay aciertos para esta tabla</td></tr>";
-																	}
-																	echo "</table>";
-																	?>
+
+															<div class="stat-status-tab">
+																<!-- Nav tabs -->
+																<ul class="nav nav-tabs m-b" role="tablist">
+																	<li role="presentation" class="active">
+																		<button href="#W1" aria-controls="W1" role="tab" data-toggle="tab" class="btn btn-status btn-a btn-img on">
+																			<img src="images/icon-check-on.png" width="100%;" alt="">
+																		</button>
+																	</li>
+
+																	<li role="presentation">
+																		<button href="#W2" aria-controls="W2" role="tab" data-toggle="tab" class="btn btn-status btn-b btn-img">
+																			<img src="images/icon-dot.png" width="100%;" alt="">
+																		</button>
+																	</li>
+
+																	<li role="presentation">
+																		<button href="#W3" aria-controls="W3" role="tab" data-toggle="tab" class="btn btn-status btn-c btn-img">
+																			<img src="images/icon-x.png" width="100%;" alt="">
+																		</button>
+																	</li>
+																</ul>
+
+																<!-- Tab panes -->
+																<div class="tab-content">
+																	<div role="tabpanel" class="tab-pane active" id="W1">
+																		<div class="resume-tab-1">
+																			<img src="images/icon-check-on.png" alt=""> 
+																			<span><?=($rango80 > 0 ? $rango80 : 0)." aciertos de ".$totalPreguntasTest;?> preguntas del test</span>
+																		</div>
+
+																		<div class="border-table-wrap">
+																			<table class="table text-center edu-table-2">
+																				<thead>
+																					<tr>
+																						<th width="50%">Alumnos</th>
+
+																						<th width="50%">Aciertos</th>
+																					</tr>
+																				</thead>
+
+																				<tbody>
+																					<?php
+																					$totalImpresoTabla = 0;
+																					foreach ($correctas as $c) {
+																						if ($c["qty"] >= $rango80) {
+																							$totalImpresoTabla++;
+																							echo "<tr><td>".$c["user_name"]."</td><td>".round($c["qty"] * 100 / $totalPreguntasTest)."% (".$c["qty"]." aciertos)</td></tr>";
+																						}
+																					}
+
+																					if ($totalImpresoTabla==0) {
+																					?>
+																					<tr>
+																						<td colspan="2">
+																							<div class="table-empty">No hay aciertos para esta tabla</div>
+																						</td>
+																					</tr>
+																					<?php } ?>
+																				</tbody>
+																			</table>
+																		</div>
+																	</div>
+
+																	<div role="tabpanel" class="tab-pane" id="W2">
+																		<div class="resume-tab-1">
+																			<img src="images/icon-dot.png" alt=""> <span><?=($rango50 > 0 ? $rango50 : 0)." aciertos de ".$totalPreguntasTest;?> preguntas del test</span>
+																		</div>
+
+																		<div class="border-table-wrap">
+																			<table class="table text-center edu-table-2">
+																				<thead>
+																					<tr>
+																						<th width="50%">Alumnos</th>
+
+																						<th width="50%">Aciertos</th>
+																					</tr>
+																				</thead>
+
+																				<tbody>
+																					<?php
+																					$totalImpresoTabla = 0;
+																					foreach ($correctas as $c) {
+																						if ($c["qty"] >= $rango50 && $c["qty"] < $rango80) {
+																							$totalImpresoTabla++;
+																							echo "<tr><td>".$c["user_name"]."</td><td>".round($c["qty"] * 100 / $totalPreguntasTest)."% (".$c["qty"]." aciertos)</td></tr>";
+																						}
+																					}
+
+																					if ($totalImpresoTabla==0) {
+																					?>
+																					<tr>
+																						<td colspan="2">
+																							<div class="table-empty">No hay aciertos para esta tabla</div>
+																						</td>
+																					</tr>
+																					<?php } ?>
+																				</tbody>
+																			</table>
+																		</div>
+																	</div>
+
+																	<div role="tabpanel" class="tab-pane" id="W3">
+																		<div class="resume-tab-1">
+																			<img src="images/icon-x.png" alt=""> <span><?=($rango0 > 0 ? $rango0 : 0)." aciertos de ".$totalPreguntasTest;?> preguntas del test</span>
+																		</div>
+
+																		<div class="border-table-wrap">
+																			<table class="table text-center edu-table-2">
+																				<thead>
+																					<tr>
+																						<th width="50%">Alumnos</th>
+
+																						<th width="50%">Aciertos</th>
+																					</tr>
+																				</thead>
+
+																				<tbody>
+																					<?php
+																					$totalImpresoTabla = 0;
+																					foreach ($correctas as $c) {
+																						if ($c["qty"] < $rango50) {
+																							$totalImpresoTabla++;
+																							echo "<tr><td>".$c["user_name"]."</td><td>".round($c["qty"] * 100 / $totalPreguntasTest)."% (".$c["qty"]." aciertos)</td></tr>";
+																						}
+																					}
+
+																					if ($totalImpresoTabla==0) {
+																					?>
+																					<tr>
+																						<td colspan="2">
+																							<div class="table-empty">No hay aciertos para esta tabla</div>
+																						</td>
+																					</tr>
+																					<?php } ?>
+																				</tbody>
+																			</table>
+																		</div>
+																	</div>
 																</div>
 															</div>
+
 														</div>
 												  	</div>
-													<div class="row">
-														<div class="col-md-12">
-															<?php 
-															/*
-															echo "
-															<h4>Detalle de la medición</h4><hr />
-															<table class='table table-bordered table-striped'>
-															<tr>
-																<th>Preguntas del test:</th>
-																<td>".$totalPreguntasTest."</td>
-															</tr>
-															<tr>
-																<th>Rango 80%:</th>
-																<td>".$rango80."</td>
-															</tr>
-															<tr>
-																<th>Rango 50%:</th>
-																<td>".$rango50."</td>
-															</tr>
-															<tr>
-																<th>Alumno</th>
-																<th>Aciertos</th>
-															</tr>
-															";
-															foreach ($correctas as $c) {
-																echo "<tr><td>".$c["user_id"]." / ".$c["user_name"]."</td><td>".$c["qty"]."</td></tr>";
-															}
-															echo "</table>";
-															*/
-															?>
-														</div>
-													</div>
+
 												  </div>
 												  <?php 
 												  foreach ($ejes as $eje) {
@@ -811,161 +921,264 @@ foreach ($nd as $ndf_pje=>$ndf_array) {
 												  	<div class="row">
 														<div class="col-md-6">
 														
-															<table class="table table-hover table-bordered">
+															<table class="table table-striped text-center table-head edu-table">
 																<thead>
 																	<tr>
-																		<td rowspan="2" colspan="2" class="text-center" style="vertical-align:middle;">Rangos</td>
-																		<td colspan="2" class="text-center">Alumnos</td>
-																	</tr>
-																	<tr>
-																		<td class="text-center">Núm</td>
-																		<td class="text-center">%</td>
+																		<th class="text-center" style="vertical-align: middle;" width="50%">
+																			Rangos
+																		</th>
+
+																		<th class="text-center" width="50%">
+																			<table width="100%" class="table-bordered text-center" style="border-top: 0; border-bottom: 0;">
+																				<tbody>
+																					<tr>
+																						<td colspan="2" style="border-top: 0;">Alumnos</td>
+																					</tr>
+
+																					<tr>
+																						<td width="50%" style="border-bottom: 0;">Números</td>
+																						<td width="50%" style="border-bottom: 0;">%</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</th>
 																	</tr>
 																</thead>
+
 																<tbody>
 																	<tr>
-																		<td class="text-center"> >= 80% </td>
-																		<td class="text-center"><ul class="nav-semaforo"><li><a class="verde">___</a></li></ul></td>
-																		<td class="text-center"><?=$alumnosRango80;?></td>
-																		<td class="text-center"><?=round($alumnosRango80 * 100 / $alumnosTotal);?>%</td>
+																		<td>
+																			<table width="100%" class="text-center">
+																				<tbody>
+																					<tr>
+																						<td width="50%">
+																							<span class="icon-table"><img src="images/icon-check-on.png" alt=""></span>	
+																						</td>
+
+																						<td width="50%" class="text-left blue-light"><i class="fa fa-arrow-up"></i> 80%</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</td>
+
+																		<td colspan="2">
+																			<table width="100%" class="text-center">
+																				<tbody>
+																					<tr>
+																						<td width="50%"><?=$alumnosRango80;?></td>
+																						<td width="50%"><?=round($alumnosRango80 * 100 / $alumnosTotal);?>%</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</td>
 																	</tr>
+
 																	<tr>
-																		<td class="text-center"> >= 50% y < 80% </td>
-																		<td class="text-center"><ul class="nav-semaforo"><li><a class="amarillo">___</a></li></ul></td>
-																		<td class="text-center"><?=$alumnosRango50;?></td>
-																		<td class="text-center"><?=round($alumnosRango50 * 100 / $alumnosTotal);?>%</td>
+																		<td>
+																			<table width="100%" class="text-center">
+																				<tbody>
+																					<tr>
+																						<td width="50%">
+																							<span class="icon-table"><img src="images/icon-dot.png" alt=""></span>	
+																						</td>
+
+																						<td width="50%" class="text-left blue-light">
+																							<i class="fa fa-arrow-down"></i> 80% <i class="fa fa-arrow-up"></i> 50%
+																						</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</td>
+
+																		<td colspan="2">
+																			<table width="100%" class="text-center">
+																				<tbody>
+																					<tr>
+																						<td width="50%"><?=$alumnosRango50;?></td>
+																						<td width="50%"><?=round($alumnosRango50 * 100 / $alumnosTotal);?>%</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</td>
 																	</tr>
+
 																	<tr>
-																		<td class="text-center"> < 50% </td>
-																		<td class="text-center"><ul class="nav-semaforo"><li><a class="rojo">___</a></li></ul></td>
-																		<td class="text-center"><?=$alumnosRango0;?></td>
-																		<td class="text-center"><?=round($alumnosRango0 * 100 / $alumnosTotal);?>%</td>
+																		<td>
+																			<table width="100%" class="text-center">
+																				<tbody>
+																					<tr>
+																						<td width="50%">
+																							<span class="icon-table"><img src="images/icon-x.png" alt=""></span>	
+																						</td>
+
+																						<td width="50%" class="text-left blue-light">
+																							<i class="fa fa-arrow-down"></i> 50%
+																						</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</td>
+
+																		<td colspan="2">
+																			<table width="100%" class="text-center">
+																				<tbody>
+																					<tr>
+																						<td width="50%"><?=$alumnosRango0;?></td>
+																						<td width="50%"><?=round($alumnosRango0 * 100 / $alumnosTotal);?>%</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</td>
 																	</tr>
 																</tbody>
+															</table>
+
 															</table>															
 														</div>
 														<div class="col-md-6">
-															<ul class="nav nav-pills nav-semaforo" role="tablist">
-																<li role="presentation" class="active"> 
-																	<a href="#W_<?=$eje["id"];?>_0" aria-controls="W_<?=$eje["id"];?>_0" role="tab" class="verde" data-toggle="tab">-</a>
-																</li>
-																<li role="presentation"> 
-																	<a href="#W_<?=$eje["id"];?>_1" aria-controls="W_<?=$eje["id"];?>_1" role="tab" class="amarillo" data-toggle="tab">-</a>
-																</li>
-																<li role="presentation"> 
-																	<a href="#W_<?=$eje["id"];?>_2" aria-controls="W_<?=$eje["id"];?>_2" role="tab" class="rojo" data-toggle="tab">-</a>
-																</li>
-															</ul>
-															<div class="tab-content">
-																<div id="W_<?=$eje["id"];?>_0" class="tab-pane stats-general-semaforo active">
-																	<?php 
-																	echo "
-																	<h4>>= ".$rango80." aciertos de ".$preguntasPorEje[$eje["id"]]." preguntas del eje</h4>
-																	<hr />
-																	<table class='table table-bordered table-striped'>
-																	<tr>
-																		<th>Alumno</th>
-																		<th>Aciertos</th>
-																	</tr>
-																	";
-																	$totalImpresoTabla=0;
-																	foreach ($correctas as $c) {
-																		if ($c["qty"] >= $rango80) {
-																			$totalImpresoTabla++;
-																			echo "<tr><td>".$c["user_name"]."</td><td>".round($c["qty"] * 100 / $preguntasPorEje[$eje["id"]])."% (".$c["qty"]." aciertos)</td></tr>";
-																		}
-																	}
-																	if ($totalImpresoTabla == 0) {
-																		echo "<tr><td colspan='2' class='text-center'>No hay aciertos para esta tabla</td></tr>";
-																	}
-																	echo "</table>";
-																	?>
-																</div>
-																<div id="W_<?=$eje["id"];?>_1" class="tab-pane stats-general-semaforo">
-																	<?php 
-																	echo "
-																	<h4> >= ".$rango50." y < ".$rango80." aciertos de ".$preguntasPorEje[$eje["id"]]." preguntas del eje</h4>
-																	<hr />
-																	<table class='table table-bordered table-striped'>
-																	<tr>
-																		<th>Alumno</th>
-																		<th>Aciertos</th>
-																	</tr>
-																	";
-																	$totalImpresoTabla = 0;
-																	foreach ($correctas as $c) {
-																		if ($c["qty"] >= $rango50 && $c["qty"] < $rango80) {
-																			$totalImpresoTabla++;
-																			echo "<tr><td>".$c["user_name"]."</td><td>".round($c["qty"] * 100 / $preguntasPorEje[$eje["id"]])."% (".$c["qty"]." aciertos)</td></tr>";
-																		}
-																	}
-																	if ($totalImpresoTabla == 0) {
-																		echo "<tr><td colspan='2' class='text-center'>No hay aciertos para esta tabla</td></tr>";
-																	}
-																	echo "</table>";
-																	?>
-																		
-																</div>
-																<div id="W_<?=$eje["id"];?>_2" class="tab-pane stats-general-semaforo">
-																	<?php 
-																	echo "
-																	<h4> < ".$rango50." aciertos de ".$preguntasPorEje[$eje["id"]]." preguntas del eje</h4>
-																	<hr />
-																	<table class='table table-bordered table-striped'>
-																	<tr>
-																		<th>Alumno</th>
-																		<th>Aciertos</th>
-																	</tr>
-																	";
-																	$totalImpresoTabla = 0;
-																	foreach ($correctas as $c) {
-																		if ($c["qty"] < $rango50) {
-																			$totalImpresoTabla++;
-																			echo "<tr><td>".$c["user_name"]."</td><td>".round($c["qty"] * 100 / $preguntasPorEje[$eje["id"]])."% (".$c["qty"]." aciertos)</td></tr>";
-																		}
-																	}
-																	if ($totalImpresoTabla == 0) {
-																		echo "<tr><td colspan='2' class='text-center'>No hay aciertos para esta tabla</td></tr>";
-																	}
-																	echo "</table>";
-																	?>
+
+															<div class="stat-status-tab">
+																<!-- Nav tabs -->
+																<ul class="nav nav-tabs m-b" role="tablist">
+																	<li role="presentation" class="active">
+																		<button href="#W_<?=$eje["id"];?>_1" aria-controls="W1" role="tab" data-toggle="tab" class="btn btn-status btn-a btn-img on">
+																			<img src="images/icon-check-on.png" width="100%;" alt="">
+																		</button>
+																	</li>
+
+																	<li role="presentation">
+																		<button href="#W_<?=$eje["id"];?>_2" aria-controls="W2" role="tab" data-toggle="tab" class="btn btn-status btn-b btn-img">
+																			<img src="images/icon-dot.png" width="100%;" alt="">
+																		</button>
+																	</li>
+
+																	<li role="presentation">
+																		<button href="#W_<?=$eje["id"];?>_3" aria-controls="W3" role="tab" data-toggle="tab" class="btn btn-status btn-c btn-img">
+																			<img src="images/icon-x.png" width="100%;" alt="">
+																		</button>
+																	</li>
+																</ul>
+
+																<!-- Tab panes -->
+																<div class="tab-content">
+																	<div role="tabpanel" class="tab-pane active" id="W_<?=$eje["id"];?>_1">
+																		<div class="resume-tab-1">
+																			<img src="images/icon-check-on.png" alt=""> 
+																			<span><?=($rango80 > 0 ? $rango80 : 0)." aciertos de ".$preguntasPorEje[$eje["id"]];?> preguntas del eje</span>
+																		</div>
+
+																		<div class="border-table-wrap">
+																			<table class="table text-center edu-table-2">
+																				<thead>
+																					<tr>
+																						<th width="50%">Alumnos</th>
+
+																						<th width="50%">Aciertos</th>
+																					</tr>
+																				</thead>
+
+																				<tbody>
+																					<?php
+																					$totalImpresoTabla = 0;
+																					foreach ($correctas as $c) {
+																						if ($c["qty"] >= $rango80) {
+																							$totalImpresoTabla++;
+																							echo "<tr><td>".$c["user_name"]."</td><td>".round($c["qty"] * 100 / $preguntasPorEje[$eje["id"]])."% (".$c["qty"]." aciertos)</td></tr>";
+																						}
+																					}
+
+																					if ($totalImpresoTabla==0) {
+																					?>
+																					<tr>
+																						<td colspan="2">
+																							<div class="table-empty">No hay aciertos para esta tabla</div>
+																						</td>
+																					</tr>
+																					<?php } ?>
+																				</tbody>
+																			</table>
+																		</div>
+																	</div>
+
+																	<div role="tabpanel" class="tab-pane" id="W_<?=$eje["id"];?>_2">
+																		<div class="resume-tab-1">
+																			<img src="images/icon-dot.png" alt=""> <span><?=($rango50 > 0 ? $rango50 : 0)." aciertos de ".$preguntasPorEje[$eje["id"]];?> preguntas del eje</span>
+																		</div>
+
+																		<div class="border-table-wrap">
+																			<table class="table text-center edu-table-2">
+																				<thead>
+																					<tr>
+																						<th width="50%">Alumnos</th>
+
+																						<th width="50%">Aciertos</th>
+																					</tr>
+																				</thead>
+
+																				<tbody>
+																					<?php
+																					$totalImpresoTabla = 0;
+																					foreach ($correctas as $c) {
+																						if ($c["qty"] >= $rango50 && $c["qty"] < $rango80) {
+																							$totalImpresoTabla++;
+																							echo "<tr><td>".$c["user_name"]."</td><td>".round($c["qty"] * 100 / $preguntasPorEje[$eje["id"]])."% (".$c["qty"]." aciertos)</td></tr>";
+																						}
+																					}
+
+																					if ($totalImpresoTabla==0) {
+																					?>
+																					<tr>
+																						<td colspan="2">
+																							<div class="table-empty">No hay aciertos para esta tabla</div>
+																						</td>
+																					</tr>
+																					<?php } ?>
+																				</tbody>
+																			</table>
+																		</div>
+																	</div>
+
+																	<div role="tabpanel" class="tab-pane" id="W_<?=$eje["id"];?>_3">
+																		<div class="resume-tab-1">
+																			<img src="images/icon-x.png" alt=""> <span><?=($rango0 > 0 ? $rango0 : 0)." aciertos de ".$preguntasPorEje[$eje["id"]];?> preguntas del eje</span>
+																		</div>
+
+																		<div class="border-table-wrap">
+																			<table class="table text-center edu-table-2">
+																				<thead>
+																					<tr>
+																						<th width="50%">Alumnos</th>
+
+																						<th width="50%">Aciertos</th>
+																					</tr>
+																				</thead>
+
+																				<tbody>
+																					<?php
+																					$totalImpresoTabla = 0;
+																					foreach ($correctas as $c) {
+																						if ($c["qty"] < $rango50) {
+																							$totalImpresoTabla++;
+																							echo "<tr><td>".$c["user_name"]."</td><td>".round($c["qty"] * 100 / $preguntasPorEje[$eje["id"]])."% (".$c["qty"]." aciertos)</td></tr>";
+																						}
+																					}
+
+																					if ($totalImpresoTabla==0) {
+																					?>
+																					<tr>
+																						<td colspan="2">
+																							<div class="table-empty">No hay aciertos para esta tabla</div>
+																						</td>
+																					</tr>
+																					<?php } ?>
+																				</tbody>
+																			</table>
+																		</div>
+																	</div>
 																</div>
 															</div>
 														</div>
 												  	</div>
-													<div class="row">
-														<div class="col-md-12">
-															<?php 
-															/*
-															echo "
-															<h4>Detalle de la medición</h4><hr />
-															<table class='table table-bordered table-striped'>
-															<tr>
-																<th>Preguntas del eje:</th>
-																<td>".$preguntasPorEje[$eje["id"]]."</td>
-															</tr>
-															<tr>
-																<th>Rango 80%:</th>
-																<td>".$rango80."</td>
-															</tr>
-															<tr>
-																<th>Rango 50%:</th>
-																<td>".$rango50."</td>
-															</tr>
-															<tr>
-																<th>Alumno</th>
-																<th>Aciertos</th>
-															</tr>
-															";
-															foreach ($correctas as $c) {
-																echo "<tr><td>".$c["user_id"]." / ".$c["user_name"]."</td><td>".$c["qty"]."</td></tr>";
-															}
-															echo "</table>";
-															**/
-															?>
-														</div>
-													</div>
-
 
 												  </div>
 												  <?php 
@@ -1006,7 +1219,7 @@ foreach ($nd as $ndf_pje=>$ndf_array) {
 						$dataPoints = substr($dataPoints,0,strlen($dataPoints)-1);
 						$dataPoints .= "]";
 					?>
-					var chart = new CanvasJS.Chart("activeGraph_<?=$_POST["curso"];?>_<?=$_POST["materia"];?>", {
+					var chart2 = new CanvasJS.Chart("activeGraph_<?=$_POST["curso"];?>_<?=$_POST["materia"];?>", {
 						animationEnabled: true,  
 						axisY: {
 							title: "Puntaje",
@@ -1015,7 +1228,7 @@ foreach ($nd as $ndf_pje=>$ndf_array) {
 							gridThickness: 0
 						},
 						axisX: {
-							minimum: <?=min($puntajes);?>,
+							minimum: 0,//<?=min($puntajes);?>,
 						},
 						data: [{
 							type: "splineArea",
@@ -1026,9 +1239,11 @@ foreach ($nd as $ndf_pje=>$ndf_array) {
 							markerColor: "rgba(76,160,255,1)",
 							dataPoints: <?=($dataPoints);?>
 						}]});
-					chart.render();
+					chart2.render();
+
 					$(".canvasjs-chart-credit").hide();
 					</script>
+
 				</div>
 			</div>
 		</div>

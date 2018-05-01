@@ -1,0 +1,76 @@
+********************
+Fecha: 30-04-18 23:18:00
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY lf.library_name ASC' at line 6
+Query: SELECT 	lf.*
+								FROM	library_files lf, library_target lt 
+								WHERE 	lt.library_file_id = lf.file_id AND 
+										lt.eje_id = 15 AND lt.teacher_id = 5
+								GROUP BY 
+								ORDER BY lf.library_name ASC
+********************
+Fecha: 30-04-18 23:18:01
+Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY lf.library_name ASC' at line 6
+Query: SELECT 	lf.*
+								FROM	library_files lf, library_target lt 
+								WHERE 	lt.library_file_id = lf.file_id AND 
+										lt.eje_id = 15 AND lt.teacher_id = 5
+								GROUP BY 
+								ORDER BY lf.library_name ASC
+********************
+Fecha: 30-04-18 23:24:33
+Error: Unknown column 'lt.eje_id' in 'where clause'
+Query: SELECT 	lf.*,
+										(select GROUP_CONCAT(x.rendimiento) from library_target x where x.library_file_id = lf.file_id AND x.eje_id = lt.eje_id) rendimiento
+								FROM	library_files lf
+								WHERE 	lf.teacher_id = 5 AND 
+								EXISTS ( SELECT * FROM library_target lt WHERE lt.library_file_id = lf.file_id AND lt.eje_id = 15 )
+								ORDER BY lf.library_name ASC
+********************
+Fecha: 30-04-18 23:24:34
+Error: Unknown column 'lt.eje_id' in 'where clause'
+Query: SELECT 	lf.*,
+										(select GROUP_CONCAT(x.rendimiento) from library_target x where x.library_file_id = lf.file_id AND x.eje_id = lt.eje_id) rendimiento
+								FROM	library_files lf
+								WHERE 	lf.teacher_id = 5 AND 
+								EXISTS ( SELECT * FROM library_target lt WHERE lt.library_file_id = lf.file_id AND lt.eje_id = 15 )
+								ORDER BY lf.library_name ASC
+********************
+Fecha: 30-04-18 23:26:04
+Error: Table 'enlanube_eduplus.courses' doesn't exist
+Query: SELECT 	lf.*,
+										(select GROUP_CONCAT(x.rendimiento) from library_target x where x.library_file_id = lf.file_id AND x.eje_id = 15) rendimiento, 
+										(select GROUP_CONCAT(y.name) from library_target y, courses y1 where y.library_file_id = lf.file_id AND y.eje_id = 15 AND y.course_id=y1.id) cursos 
+								FROM	library_files lf
+								WHERE 	lf.teacher_id = 5 AND 
+								EXISTS ( SELECT * FROM library_target lt WHERE lt.library_file_id = lf.file_id AND lt.eje_id = 15 )
+								ORDER BY lf.library_name ASC
+********************
+Fecha: 30-04-18 23:26:05
+Error: Table 'enlanube_eduplus.courses' doesn't exist
+Query: SELECT 	lf.*,
+										(select GROUP_CONCAT(x.rendimiento) from library_target x where x.library_file_id = lf.file_id AND x.eje_id = 15) rendimiento, 
+										(select GROUP_CONCAT(y.name) from library_target y, courses y1 where y.library_file_id = lf.file_id AND y.eje_id = 15 AND y.course_id=y1.id) cursos 
+								FROM	library_files lf
+								WHERE 	lf.teacher_id = 5 AND 
+								EXISTS ( SELECT * FROM library_target lt WHERE lt.library_file_id = lf.file_id AND lt.eje_id = 15 )
+								ORDER BY lf.library_name ASC
+********************
+Fecha: 30-04-18 23:26:12
+Error: Table 'enlanube_eduplus.courses' doesn't exist
+Query: SELECT 	lf.*,
+										(select GROUP_CONCAT(x.rendimiento) from library_target x where x.library_file_id = lf.file_id AND x.eje_id = 15) rendimiento, 
+										(select GROUP_CONCAT(y1.name) from library_target y, courses y1 where y.library_file_id = lf.file_id AND y.eje_id = 15 AND y.course_id=y1.id) cursos 
+								FROM	library_files lf
+								WHERE 	lf.teacher_id = 5 AND 
+								EXISTS ( SELECT * FROM library_target lt WHERE lt.library_file_id = lf.file_id AND lt.eje_id = 15 )
+								ORDER BY lf.library_name ASC
+********************
+Fecha: 30-04-18 23:26:13
+Error: Table 'enlanube_eduplus.courses' doesn't exist
+Query: SELECT 	lf.*,
+										(select GROUP_CONCAT(x.rendimiento) from library_target x where x.library_file_id = lf.file_id AND x.eje_id = 15) rendimiento, 
+										(select GROUP_CONCAT(y1.name) from library_target y, courses y1 where y.library_file_id = lf.file_id AND y.eje_id = 15 AND y.course_id=y1.id) cursos 
+								FROM	library_files lf
+								WHERE 	lf.teacher_id = 5 AND 
+								EXISTS ( SELECT * FROM library_target lt WHERE lt.library_file_id = lf.file_id AND lt.eje_id = 15 )
+								ORDER BY lf.library_name ASC

@@ -22,22 +22,38 @@
 	<!-- FontAwesome -->
 	<script src="https://use.fontawesome.com/12fbfdb954.js"></script>
 
-	<!-- CSS & Bootstrap -->
 	<link rel="stylesheet" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/generic.css">
+	<link rel="stylesheet" href="css/generic.css?v=<?=date("dmYHis");?>">
+	<link rel="stylesheet" href="css/circle.css">
+	<link rel="stylesheet" href="css/slider.css">
+	<link rel="stylesheet" href="css/dropzone.css">
+	<link rel="stylesheet" href="css/select2.min.css" />
+	<link rel="stylesheet" href="css/font-awesome.min.css" />
+	<link rel="stylesheet" href="css/sfwebfont.css" />
+	<link rel="stylesheet" href="js/ui/jquery-ui.min.css" />
+	<link rel="stylesheet" href="js/ui/jquery-ui.theme.min.css" />
 
 	<!-- JQuery -->
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script src="js/jquery-1.12.4.min.js"></script>
+
+
 	<!-- Js -->
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/bootstrap-slider.js"></script>
 	<script src="js/jquery.rut.min.js"></script>
+	<script src="js/jquery.mask.min.js"></script>
+	<script src="js/ui/jquery-ui.min.js"></script>
+	<script src="js/canvasjs.min.js"></script>
+	<script src="js/select2.full.min.js"></script>
+	<script src="js/dropzone.js"></script>
+	<script src="js/bootstrap-datetimepicker.js"></script>
+	<script src="js/locales/bootstrap-datetimepicker.es.js"></script>
 
 	<!-- GoogleFont -->
 	<link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet"> 
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900" rel="stylesheet"> 
 	
-	<script src="js/script.js"></script>
+	<script src="js/script.js?v=<?=date("YmdHis");?>"></script>
 	
 </head>
 <body>

@@ -2,11 +2,7 @@
 	<div id="menuHelper">
 		<div class="container-fluid">
 			<div class="row">
-				<div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
-					
-				</div>
-
-				<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+				<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 					<div class="search-cont">
 						<div class="vcenter">
 							<div class="tabcell">
@@ -21,7 +17,7 @@
 					</div>
 				</div>
 
-				<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+				<div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
 					<div class="vcenter">
 						<div class="tabcell">
 							<div class="grade-switch">

@@ -60,6 +60,8 @@ $(document).on("click",".subjects-infobox", function(data) {
 	});
 });
 
+
+// first click
 $("#statsAlumnoDiv").html('<i class="fa fa-5x fa-spin fa-refresh"></i>');
 $("#statsAlumnoDiv").show();
 $.post("ajax/alumno_general.php", { type: type }, function(data) {

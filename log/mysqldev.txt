@@ -1,0 +1,290 @@
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT tr.materia_id, m.name materia_name FROM teacher_relations tr, materia m 
+														WHERE tr.teacher_id = 5 AND tr.materia_id = m.id 
+														GROUP BY tr.materia_id, m.name
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM user WHERE id = '7'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM user WHERE id = '7'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT tr.materia_id, m.name materia_name FROM teacher_relations tr, materia m 
+														WHERE tr.teacher_id = 5 AND tr.materia_id = m.id 
+														GROUP BY tr.materia_id, m.name
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT c.id course_id, c.name course_name
+													  FROM teacher_relations tr, course c
+													  WHERE tr.teacher_id = 5 AND tr.course_id = c.id GROUP BY c.id, c.name ORDER BY c.id ASC
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT c.id course_id, c.name course_name
+													  FROM teacher_relations tr, course c
+													  WHERE tr.teacher_id = 5 AND tr.course_id = c.id GROUP BY c.id, c.name ORDER BY c.id ASC
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT c.id course_id, c.name course_name
+													  FROM teacher_relations tr, course c
+													  WHERE tr.teacher_id = 5 AND tr.course_id = c.id GROUP BY c.id, c.name ORDER BY c.id ASC
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM user WHERE id = '7'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM user WHERE id = '7'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT name FROM customer WHERE id = 0
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT tr.*, m.name materia_name, c.name course_name FROM teacher_relations tr, materia m, course c WHERE tr.teacher_id = 5 AND tr.materia_id = m.id AND tr.course_id = c.id ORDER BY m.id ASC
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT tr.*, m.name materia_name, c.name course_name FROM teacher_relations tr, materia m, course c WHERE tr.teacher_id = 5 AND tr.materia_id = m.id AND tr.course_id = c.id ORDER BY m.id ASC
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT tr.*, m.name materia_name, c.name course_name FROM teacher_relations tr, materia m, course c WHERE tr.teacher_id = 5 AND tr.materia_id = m.id AND tr.course_id = c.id ORDER BY m.id ASC
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT tr.*, m.name materia_name, c.name course_name FROM teacher_relations tr, materia m, course c WHERE tr.teacher_id = 5 AND tr.materia_id = m.id AND tr.course_id = c.id ORDER BY m.id ASC
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT tr.*, m.name materia_name, c.name course_name FROM teacher_relations tr, materia m, course c WHERE tr.teacher_id = 5 AND tr.materia_id = m.id AND tr.course_id = c.id ORDER BY m.id ASC
+********************************
+Q: SELECT * FROM teacher WHERE id = '5'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT tr.*, m.name materia_name, c.name course_name FROM teacher_relations tr, materia m, course c WHERE tr.teacher_id = 5 AND tr.materia_id = m.id AND tr.course_id = c.id ORDER BY m.id ASC
+********************************
+Q: SELECT * FROM user WHERE id = '3'
+********************************
+Q: SELECT name FROM customer WHERE id = 2
+********************************
+Q: SELECT i.*, IFNULL((SELECT COUNT(*) FROM user_interes a WHERE a.user_id = 3 AND a.interes_id = i.id),0) x FROM intereses i ORDER BY i.name ASC
+********************************
+Q: SELECT c.name FROM user_relations ur, course c WHERE ur.user_id = 3 AND ur.course_id = c.id
+********************************
+Q: SELECT * FROM user WHERE id = 3
+********************************
+Q: SELECT * FROM user_performance WHERE user_id = 3
+********************************
+Q: SELECT *, IFNULL((SELECT pgu.pond_valor FROM pond_group_user pgu WHERE pgu.pond_user = 3 AND pgu.pond_id = pg.id),0) myPond FROM pond_group pg
+********************************
+Q: SELECT *, 
+									 IFNULL((SELECT ug.points FROM user_goal ug WHERE ug.id = 3 AND ug.materia = m.id),0) points, 
+									 IFNULL((SELECT tp.points FROM test_end_head tp WHERE tp.isLast = 1 AND tp.materia = m.id AND tp.user_id = 3 ORDER BY cuando DESC LIMIT 1),0) ultimo_puntaje 
+							FROM pond_group_materia pg, materia m 
+							WHERE pg.pond_materia = m.id AND m.active = 1 AND pg.pond_id = 1
+********************************
+Q: UPDATE user_goal SET ultima_psu = 276 WHERE materia = 1 AND id = 3
+********************************
+Q: SELECT *, 
+									 IFNULL((SELECT ug.points FROM user_goal ug WHERE ug.id = 3 AND ug.materia = m.id),0) points, 
+									 IFNULL((SELECT tp.points FROM test_end_head tp WHERE tp.isLast = 1 AND tp.materia = m.id AND tp.user_id = 3 ORDER BY cuando DESC LIMIT 1),0) ultimo_puntaje 
+							FROM pond_group_materia pg, materia m 
+							WHERE pg.pond_materia = m.id AND m.active = 1 AND pg.pond_id = 2
+********************************
+Q: UPDATE user_goal SET ultima_psu = 150 WHERE materia = 2 AND id = 3
+********************************
+Q: SELECT *, 
+									 IFNULL((SELECT ug.points FROM user_goal ug WHERE ug.id = 3 AND ug.materia = m.id),0) points, 
+									 IFNULL((SELECT tp.points FROM test_end_head tp WHERE tp.isLast = 1 AND tp.materia = m.id AND tp.user_id = 3 ORDER BY cuando DESC LIMIT 1),0) ultimo_puntaje 
+							FROM pond_group_materia pg, materia m 
+							WHERE pg.pond_materia = m.id AND m.active = 1 AND pg.pond_id = 4
+********************************
+Q: UPDATE user_goal SET ultima_psu = 0 WHERE materia = 4 AND id = 3
+********************************
+Q: SELECT *, 
+									 IFNULL((SELECT ug.points FROM user_goal ug WHERE ug.id = 3 AND ug.materia = m.id),0) points, 
+									 IFNULL((SELECT tp.points FROM test_end_head tp WHERE tp.isLast = 1 AND tp.materia = m.id AND tp.user_id = 3 ORDER BY cuando DESC LIMIT 1),0) ultimo_puntaje 
+							FROM pond_group_materia pg, materia m 
+							WHERE pg.pond_materia = m.id AND m.active = 1 AND pg.pond_id = 5
+********************************
+Q: UPDATE user_goal SET ultima_psu = 0 WHERE materia = 5 AND id = 3
+********************************
+Q: UPDATE user_goal SET ultima_psu = 0 WHERE materia = 6 AND id = 3
+********************************
+Q: UPDATE user_goal SET ultima_psu = 0 WHERE materia = 7 AND id = 3
+********************************
+Q: UPDATE user SET ultima_ponderacion = 145, puntaje_ponderacion = 0, porc_cumplimiento = 20 WHERE id = 3
+********************************
+Q: SELECT * FROM user_especify WHERE user_id = 3
+********************************
+Q: SELECT universidad FROM umineduc GROUP BY universidad ORDER BY universidad ASC
+********************************
+Q: SELECT * FROM user WHERE id = '3'
+********************************
+Q: SELECT name FROM customer WHERE id = 2

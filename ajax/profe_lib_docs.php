@@ -22,18 +22,7 @@ else if ($_POST["remove_library_id"]) {
 <div id="pageContainerInner" class="no-menu-helper">
 	<div id="pageBody">
 		<div class="container-fluid">
-			<?php 
-			if ($_POST["success"]) {
-			?>
-			<div id="successCLoad" class="alert alert-success"><strong>Tu última publicación fue exitosa.</strong></div>
-			<script type="text/javascript">
-				setTimeout(function() {
-					$("#successCLoad").fadeOut();
-				},3000);
-			</script>
-			<?php
-			}
-			?>
+
 			<div class="row">
 				<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
 					<form id="new_library" method="POST" action="">
@@ -52,7 +41,7 @@ else if ($_POST["remove_library_id"]) {
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 
 										<select class="form-control inp-school-b" id="materia">
-										<option value="">Seleccione materia</option>
+										<!--<option value="">Seleccione materia</option>-->
 										<?php
 										//tr.*, c.id course_id, c.name course_name, 
 										$trs = DB::query("SELECT m.id materia_id, m.name materia_name
@@ -75,10 +64,11 @@ else if ($_POST["remove_library_id"]) {
 										?>
 										</select>
 									</div>
-
+									<!--
 									<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 										<input type="text" class="form-control inp-school" id="group_title" maxlength="25" placeholder="Titulo del grupo de documentos">
 									</div>
+									-->
 								</div>
 							</div>
 						</div>
@@ -216,19 +206,27 @@ else if ($_POST["remove_library_id"]) {
 						<div class="module-row">
 							<div class="panel panel-info">
 							  <div class="panel-heading">
-								Restringir por rendimiento
+								Aplicación por rendimiento
 							  </div>
 							  <div class="panel-body">
 								<div class="row">
-									<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+									<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+										<label class="checkbox"><input type="checkbox" id="visibilidad_all" /> Todos</label>
+										<ul>
+											<div class="checkbox"><label><input type="checkbox" class="visibilidad_check" value="1" /> Alumnos sobre 80% de rendimiento</label></div>
+											<div class="checkbox"><label><input type="checkbox" class="visibilidad_check" value="2" /> Alumnos entre 50% y 80% rendimiento</label></div>
+											<div class="checkbox"><label><input type="checkbox" class="visibilidad_check" value="3" /> Alumnos bajo 50% de rendimiento</label></div>
+										</ul>
+										<!--
 										<select id="visibilidad" class="form-control inp-school-b">
-											<option value="0">Sin restricciones</option>
+											<option value="0">Todos</option>
 											<option value="3">Alumnos sobre el 80% de rendimiento</option>
 											<option value="2">Alumnos entre 50% y 80% de rendimiento</option>
 											<option value="1">Alumnos bajo el 50% de rendimiento</option>
 										</select>
+										-->
 									</div>
-									<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
+									<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
 									<small>* Los alumnos pueden variar el rendimiento en cualquier momento lo que puede dejar estos documentos fuera de destino</small>
 									</div>
 								</div>
@@ -447,13 +445,37 @@ else if ($_POST["remove_library_id"]) {
 		placeholder: "Seleccione materia",
 		allowClear: false
 	});*/
+	$(".visibilidad_check").click(function(e) {
+		if ($(".visibilidad_check:checkbox:checked").length < 3) {
+			$("#visibilidad_all").prop("checked",false);
+		}
+		else {
+			$("#visibilidad_all").prop("checked",true);	
+		}
+	});
+	$("#visibilidad_all").click(function(e) {
+		if ($(this).is(":checked")) {
+			$(".visibilidad_check").prop('checked',true);
+		} else {
+			$(".visibilidad_check").prop('checked',false);
+		}
+	});
 
 	$("#makePublish").click(function(e) {
 		e.preventDefault();
 		var titulo = $.trim($("#group_title").val());
 		//var target = $.trim($("#group_target").val());
 		var materia = $.trim($("#materia").val());
-		var visibilidad = $.trim($("#visibilidad").val());
+
+		if ($(".visibilidad_check:checkbox:checked").length == 0) {
+			var visibilidad = "1,2,3";
+		} else {
+			var checkedVals = $('.visibilidad_check:checkbox:checked').map(function() {
+			    return this.value;
+			}).get();		
+			var visibilidad = checkedVals.join(",");
+		}
+		
 		var fecha_inicio = $.trim($("#fecha_inicio").val());
 		var fecha_termino = $.trim($("#fecha_termino").val());
 		var hora_inicio = $.trim($("#hora_inicio").val());
@@ -492,9 +514,6 @@ else if ($_POST["remove_library_id"]) {
 		if (materia=="") {
 			modal("Error","Debe seleccionar una materia");
 		}
-		else if (titulo == "") {
-			modal("Error","Debe ingresar un titulo");
-		}
 		else if (archivos.length == 0) {
 			modal("Error","Debe cargar a lo menos un archivo a la publicación");
 		}
@@ -518,7 +537,7 @@ else if ($_POST["remove_library_id"]) {
 			$("#new_library_load").show();
 
 			$.post("http://api.eduplus.enlanube.cl/ws.php", {
-				nombre: titulo,
+				//nombre: titulo,
 				materia: materia,
 				visibilidad: visibilidad,
 				archivos: archivos.join('*'),
@@ -535,7 +554,7 @@ else if ($_POST["remove_library_id"]) {
 				sin_termino: sin_termino,
 				action: "addResourcesTeacher"
 			}, function(data) {
-				$.post("ajax/profe_lib_docs.php", {success: 1}, function(data2){
+				$.post("ajax/profe_lib.php", {success: 1}, function(data2){
 					$("#lib_container").html(data2);
 				});				
 			},"json");
